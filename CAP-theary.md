@@ -1,4 +1,4 @@
-CAP Theorem 
+# CAP Theorem 
 
 The CAP Thearem, introduced by Eric Brewer in 2000, which provides fundamental framework for understanding the trade-off that must made when designing distributed systems.
 
