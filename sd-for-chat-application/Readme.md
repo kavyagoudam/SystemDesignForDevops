@@ -202,11 +202,41 @@ Another way to implement this is to track the latest action of the user, Once th
 
 
 
+### Notifications:
 
+Once a message is sent in a chat or a group we will first check if the recipient is active or not, we can get this information by taking the user's active connection and last seen into consideration.
 
+If the recipient is not active, the chat service will add an event to a message queue with additional metadata such as the client's device platform which will be used to route the notification to the correct platform later on.
 
+The notification service will then consume the event from the message wueue and forward the request to 'Firebase cloud Messaging (FCM) or Apple Push Notificaiont Service' based on the client device platform.
 
+### Why are we using messaging queue?
 
+Since most message queues provide best-effort provide est-effort ordering which ensures that message is delivered at least once which is an important part of our functionality.
+
+While this seems like a classic publish-subscribe use case, it is actually not as mobile devices and browsers each have their own way of handling push notifications. Usually notifications are handled externally via Firebase Cloud Messaging(FCM) or Apple Push Notification Service(APNS) unlike message fan-out which we commanly see in backend services. we can use something like Amazon SQS or RabbitMQ to support this functinality.
+
+## Read receipts
+
+    Handling read receipt can be tricky, for this user case we can wait for some sort of Acknowledgment(ACK) from the client to determine if the message was delivered and update the corresponding deleredAt field. similarly, we will mark message the message seen once the user opens the chat and update the corresponding seenAt timestamp field.
+## Design
+    ![alt text](image.png)
+
+## Detailed Design
+    It's time to discuss our design decicions in detail.
+
+### Data Partitioning
+    To scale out our databases we will need to partion our data. Horizontal partitioning(aka sharding) can be a good first step. We can use partitoins schemes such as:
+    1.  Hash-Based Partitioning
+    2.  List-Based Partitioning
+    3.  Range Based Partitioning
+    4.  Composite Partitioning
+
+    The above approches can still cause uneven data and load distribution, we can solve this problem using Consisten hashing.
+
+### Caching
+
+    https://dev.to/karanpratapsingh/system-design-whatsapp-fld
 
 
 
