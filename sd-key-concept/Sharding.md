@@ -1,6 +1,6 @@
 ### Sharding
 
-DataBase shardinh is a horizontal scaling technique used to split a large database into smaller independent pieces called shards.
+DataBase sharding is a horizontal scaling technique used to split a large database into smaller independent pieces called shards.
 
 These shards are then distributed across multiple servers or nodes, each responsible for handling a specific subset of the data.
 
@@ -9,7 +9,7 @@ Sharding is widely used by large-scale applications and services that handle mas
 1.  Social networks
 2.  E-commerce Platforms
 3.  Search Engines
-4. Gaming:
+4.  Gaming:
 
 
 ## Benefits of Database Sharding
@@ -21,6 +21,8 @@ Sharding is widely used by large-scale applications and services that handle mas
 5.  Reduced Cost
 
 ## How Does Sharding Work
+
+Sharding works on multiple Key Component
 
 Sharding Key: The shard key is a unique identifier used to determine which shard a particular piece of data belongs to. It can be a single column or a combination of columns.
 
@@ -47,7 +49,7 @@ Example: Shard 1 contains records with IDs from 1 to 10000, Shard 2 contains rec
 
 Example: Shard 1 serves users in North America, Shard 2 serves users in Europe, Shard 3 serves users in Asia.
 
-Directory-Based Sharding: Maintains a lookup table that directly maps specific keys to specific shards.
+4.  Directory-Based Sharding: Maintains a lookup table that directly maps specific keys to specific shards.
 
 
 ## Challenges with Database Sharding
