@@ -1,0 +1,28 @@
+### Refactoring- improving the Design of the existing code
+
+1.	When you have to add a feature to a program but the code is not structured in
+a convenient way, first refactor the program to make it easy to add the feature, then
+add the feature.
+
+2.	Before you start refactoring, make sure you have a solid suite of tests. These
+tests must be self­checking.
+
+3.	Before you start refactoring, make sure you have a solid suite of tests. These
+tests must be self­checking.
+
+4.	Any fool can write code that a computer can understand. Good programmers
+write code that humans can understand
+
+5.	When programming, follow the camping rule: Always leave the code base
+healthier than when you found it.
+
+6.	The true test of good code is how easy it is to change it
+
+7.	If someone says their code was broken for a couple of days while they are
+refactoring, you can be pretty sure they were not refactoring.
+
+8.	You have to refactor when you run into ugly code—but excellent code needs
+plenty of refactoring too.
+
+9.	The whole purpose of refactoring is to make us program faster, producing
+more value with less effort
