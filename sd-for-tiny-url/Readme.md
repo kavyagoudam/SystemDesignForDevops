@@ -239,6 +239,30 @@ There are few consideration in Incremental Id approach
 2.  Scalability: If not designed properly, a single point of ID generation can become a scalability bottleneck.
     Mitigation: Distributed ID generation strategies can be used to maintain scalability while preserving uniqueness
 
+Approach 3: ZooKeeper
+
+Zookeeper provides coordination services and configuration management for distributed systems
+* Zookeeper manages distributed network, active servers, and elects leaders.
+* Zookeeper provides a coordinated database and handles configurations.
+* Zookeeper is used in the design of a distributed URL shortener system.
+
+How it works?
+
+1.  Assigning ranges to servers in a distributed system for URL shortening.
+2.  Servers register themselves with a zookeeper and are assigned a range
+3.  The range represents the counters used for URL shortening
+4.  The counters are stored in memory and broken into ranges for efficient processing
+5.  Shortened URLs are generated using a base 62 encoding
+6.  The cache is used to store mappings for faster resolution
+
+Advantage of using zookeeper
+
+1.  Zookeeper provides collision-free and scalable URL shortening system design
+2.  Zookeeper ensures unique counters for each server to prevent collisions
+3.  Zookeeper enables seamless coordination and scalability of servers
+4.  Consistency in data is achieved by setting replication factor and consistency level
+5.  Zookeeper can be used for distributed caching with scalability
+
 ### Custom Aliasing
 
 Custom Aliasing allows to specify their own hosrt URL instead of accepting a syste generated one.
@@ -294,11 +318,12 @@ To reduce database load and improve latency, frequently accessed short URLs can 
 
 The Redirection Service should first check the cache before querying the database.
 
-### Analytics Service
+### Analytics Service 
 
 If the service needs to track analytics, such as the number of times a short URL is clicked, a separate analytics service can be introduced:
 1.  Event Logging
 2.  Batch Processing
+For Analytic search, choose elastic search tool. to track the analytics
 
 ## Addressing Key Issues and bottlenecks
 
