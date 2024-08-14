@@ -26,3 +26,44 @@ plenty of refactoring too.
 
 9.	The whole purpose of refactoring is to make us program faster, producing
 more value with less effort
+
+
+10.	The longer I work on an isolated
+branch, the harder the job of integrating my work with mainline is going to be when I’m
+done. Most people reduce this pain by frequently merging or re­basing from mainline
+to my branch
+
+11. One difference from regular refactorings is that database changes often are best
+separated over multiple releases to production. This makes it easy to reverse any
+change that causes a problem in production.
+
+
+12.	Deciding when to start refactoring—and when to stop—is
+just as important to refactoring as knowing how to operate the mechanics of it
+
+13. Sharter the funcation easy to understand
+
+14.	Parameter list to a function:- If you can obtain one parameter by asking another parameter for it, you can use
+Replace Parameter with Query (324) to remove the second parameter.
+
+15. it’s good to limit variable scope as much as possible by moving it within a class or module where only that module’s code can see it.
+16.	When you feel the need to write a comment, first try to refactor the code so
+that any comment becomes superfluous.
+17. Make sure all tests are fully automatic and that they check their own results.
+18.	A suite of tests is a powerful bug detector that decapitates the time it takes to
+find bugs.
+19.	Always make sure a test will fail when it should.
+
+20. Run tests frequently. Run those exercising the code you’re working on at least
+every few minutes; run all tests at least daily.
+
+21.	It is better to write and run incomplete tests than not to run complete tests.
+
+22.	Think of the boundary conditions under which things might go wrong and
+concentrate your tests there.
+
+23.	Don’t let the fear that testing can’t catch all bugs stop you from writing tests
+that catch most bugs
+
+24.	When you get a bug report, start by writing a unit test that exposes the bug.
+
