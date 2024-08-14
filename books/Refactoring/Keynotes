@@ -67,3 +67,33 @@ that catch most bugs
 
 24.	When you get a bug report, start by writing a unit test that exposes the bug.
 
+FORMAT OF THE REFACTORINGS
+
+*   I begin with a name. The name is important to building a vocabulary of
+refactorings. This is the name I use elsewhere in the book. Refactorings often go by
+different names now, so I also list any aliases that seem to be common.
+*   I follow the name with a short sketch of the refactoring. This helps you find a
+refactoring more quickly.
+*   The motivation describes why the refactoring should be done and describes
+circumstances in which it shouldn’t be done.
+*   The mechanics are a concise, step­by­step description of how to carry out the
+refactoring.
+*   The examples show a very simple use of the refactoring to illustrate how it works
+
+A First Set of refactring
+
+1.  Extracting Code into a method
+2.  Group similar function in to a classh
+3.  Create a new function, and name it after the intent of the function (name it by what
+it does, not by how it does it)
+4.  If a variable is only used inside the extracted code but is declared outside, move the
+declaration into the extracted code.
+5.  Compile after all variables are dealt with.
+6.  Replace the extracted code in the source function with a call to the target function.
+
+
+*   Ensure that the expression you want to extract does not have side effects.
+*   Declare an immutable variable. Set it to a copy of the expression you want to name.
+*   Replace the original expression with the new variable.
+
+Pending Chaper 8
