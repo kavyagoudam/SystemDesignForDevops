@@ -1,0 +1,72 @@
+   
+## Microservices - Key principles and best practices
+
+
+### 1. Database for Microservice
+    principles for databse architecture
+    1.  Database per Microservice:
+        Each microservise team fully owns its data and does not expose it directly to any other service, even at the cost of additional latency
+        ![alt text](img/databse.png)
+    
+        When a service request data from another service. it should go through the target API
+
+    Downsides
+    1.  Added latency
+    2.  No more join  operation
+    3.  No support for transaction
+
+### The DRY(Don't Repeat Yourself) principle
+    If you repease the same Logic or data (constant values) you should consolidate it a shared
+    1. Method
+    2. Class
+    3. Variable
+    4.  Shared Library
+
+    Benefits of following DRY
+    1. We can make a change in only one place
+    2. Reduce duplicate effort
+    3.  Work of a single engieer can be reused
+
+NOTE: DRY principle does not always apply to micrservices
+
+    Challenges of Shared Libraries
+    1.  Tight Coupling
+        When multiple microservices share and depend on the same library, changes to this library becomes a source of tight coupling and friction between the different microservices and owners of that library. If there are API changes to that library, those changes need to be communicated to the other teams
+    2.  Every changes requires- Rebuild, Retest, Redeploy.
+    3.  Bug / Vulnerability in a shared library impacts all microservices
+    4.  Dependency hell
+    
+    Alternatives to shared library
+    1. Shared Business Logic
+        Consider a complex business Logic shared accross the multiple business logic. Which does not have Single Responsibility Model.
+        In that case, do one of the following. 
+        1. Reevaluate the Boundaries 
+        2. New Microservice
+        3. Common Data Models for Communication
+        4. Code Generation
+
+    Code that is OK to duplicate
+
+    1. Utility methods that chanes frequently
+    2. The reasons
+        - Each microservices can have its own optimized implemementation 
+        - Makes ti easier to migrate microservices to other programming languages
+    
+    No Code Duplication Options
+    
+    1.   Sidecar Parrern
+        - Microservice to sidecar communication OVerhead
+          Smaller than with other services / hosts
+          higher than with code in a shared library
+    2.  Use a shared Library - has to be self contained  / independent of other libraries
+
+    NOTE :-
+        Inside each individual microservice, we still follow DRY
+        Code duplication is unacceptable
+    
+    Data Duplication in microservices
+        - Important for performance reasons
+        - Makes data eventually consistent
+        - Only one microservices needs to remain main owner of each data
+
+

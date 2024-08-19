@@ -1,0 +1,23 @@
+# Automated Testing for Microservices and Event-Driven Architecture
+
+## Integration Tests using lightweight mocks
+Consider the scenario where we are a team that owns microservice A that consumes the API of microservice B This team wants to run an integration test that validates the triggering. Certain functionalities with a set of arameters results in microservice. A sending a request to microservice B and that microservice A also correctly handles the response from microservice B Normally to run this test we would have to build, configure and run microservice B with all of its dependencies.
+But now instead we simply mock the API layer of microservice B, which we integrate with and set it to send back a hard coded response if it receives the expected request.
+
+## Contract tests for synchronous communication
+
+Contract tests work by using a dedicated tool to keep the mock API provider and the mock API consumer in sync through a shared contract.
+
+Contract Testing Solutions
+Pact - An open-source contract testing tool that allows API consumers and API providers to define and verify their API contracts. Pact support for many programming languages and frameworks.
+
+
+
+Spring Cloud Contract - An open-source umbrella project for contract testing solutions. Contains the Spring Cloud Contract Verifier project that enables Consumer Driven Contract (CDC) development of JVM-based applications using Groovy DSL or YAML.
+
+
+
+PactFlow -  A commercial offering that manages the lifecycle of contracts defined by contract testing tools (like Pact, Spring Contract, etc.) and provides a workflow to manage them in your CI/CD pipelines.
+
+Supports all JVM languages as well as Ruby, Golang, NodeJS / JavaScript, Python, Objective-C / Swift, .NET, PHP, C++, and Rust
+

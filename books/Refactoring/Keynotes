@@ -96,4 +96,9 @@ declaration into the extracted code.
 *   Declare an immutable variable. Set it to a copy of the expression you want to name.
 *   Replace the original expression with the new variable.
 
-Pending Chaper 8
+17. Move the function, statement as per the need
+18. Much of the power of programs comes from their ability to implement conditional logic
+19. Modules and their functions are the building blocks of our software. APIs are the joints
+that we use to plug them together. Making these APIs easy to understand and use is
+important but also difficult
+
