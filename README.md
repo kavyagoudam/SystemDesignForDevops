@@ -2,4 +2,4 @@
 
 Key Concepts
 
-[a link](https://medium.com/@kavyagoudam/observability-17f53da2ae0f)
+[Observability](https://medium.com/@kavyagoudam/observability-17f53da2ae0f)
