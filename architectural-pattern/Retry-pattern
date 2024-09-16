@@ -1,0 +1,49 @@
+Retry Pattern is Good for Resilience, But Only if You Do It Right.
+
+Here are 4 things to remember when using the Retry Pattern.
+
+The Retry Pattern is a design approach. It enhances reliability and resilience by automatically reattempting a failed operation or request. 
+
+
+𝟏. 𝐒𝐞𝐭 𝐚 𝐑𝐞𝐚𝐬𝐨𝐧𝐚𝐛𝐥𝐞 𝐑𝐞𝐭𝐫𝐲 𝐋𝐢𝐦𝐢𝐭:
+
+Determining the right number of retries is critical. 
+
+Too few retries might prevent the resolution of temporary issues, while too many retries could lead to excessive load or long delays in recognizing a persistent problem. 
+
+I never go over 3 retries. 
+
+
+𝟐. 𝐈𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭 𝐄𝐱𝐩𝐨𝐧𝐞𝐧𝐭𝐢𝐚𝐥 𝐁𝐚𝐜𝐤𝐨𝐟𝐟:
+
+Instead of retrying immediately, implement an exponential backoff strategy. 
+
+This means that after each failed attempt, you increase the time before the next retry, not overwhelming the system and giving it time to recover. 
+
+Exponential backoff helps avoid a stampeding herd effect, in which all failed requests suddenly hit the system simultaneously after a short time.
+
+
+𝟯. 𝗜𝗱𝗲𝗻𝘁𝗶𝗳𝘆 𝗥𝗲𝘁𝗿𝗶𝗮𝗯𝗹𝗲 𝗘𝗿𝗿𝗼𝗿𝘀:
+
+Not all errors are worth retrying. Focus on retrying only transient errors:
+
+• 408 Request Timeout
+• 5XX (Server did something bad)
+
+Avoid responses like:
+
+• 400 (Bad Request)
+• 403 (Forbidden)
+
+They are not recoverable, so the retry logic shouldn't retry them.
+
+
+𝟰. 𝗖𝗼𝗺𝗯𝗶𝗻𝗲 𝘄𝗶𝘁𝗵 𝗖𝗶𝗿𝗰𝘂𝗶𝘁 𝗕𝗿𝗲𝗮𝗸𝗲𝗿:
+
+The Retry Pattern works well when combined with a circuit breaker mechanism. 
+A circuit breaker monitors a service's health and prevents repeated calls to a failing service. 
+
+If a certain threshold of failures is reached, the circuit breaker opens, temporarily preventing further requests. This gives the service time to recover before attempting retries again.
+
+
+When done correctly, the Retry Pattern minimizes disruptions and optimizes system performance!
