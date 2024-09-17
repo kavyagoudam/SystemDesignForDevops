@@ -14,7 +14,7 @@
 
 ## week 2
 
-[availability ]
+[availability ](https://kavyagoudam.medium.com/availability-2137d371e551)
 
 [ACID theory]
 
